@@ -1,4 +1,4 @@
-package com.mili.calculator;
+package com.mili.calculatorg;
 import org.springframework.stereotype.Service;
 
 @Service

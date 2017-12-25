@@ -1,4 +1,4 @@
-package com.mili.calculator;
+package com.mili.calculatorg;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
