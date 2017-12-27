@@ -38,6 +38,10 @@ pipeline {
 				sh "./gradlew build"
 			}
 		}
+		
+		/* 
+  
+
 		stage("Docker build") {
 			steps {
 				sh "docker build -t leszko/calculator ."
@@ -55,7 +59,7 @@ pipeline {
 				sh "docker run -d --rm -p 8765:8080 --name calculator leszko/calculator"
 			}
 		}
-		
+	 */	
 		stage("Acceptance test") {
 			steps {
 				sleep 60
