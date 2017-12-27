@@ -1,7 +1,7 @@
 pipeline {
-	agent any
 	
-	agent {
+	
+	agent any {
 		docker {
 			image 'openjdk:8-jdk-alpine'
 		}
