@@ -52,6 +52,7 @@ pipeline {
 		
 		stage("Docker push") {
 			steps {
+				bat "docker login --username dm4711 --password securedm4711"
 				bat "docker push leszko/calculator"
 			}
 		}
