@@ -66,7 +66,7 @@ pipeline {
 		
 		stage("Acceptance test") {
 			steps {
-				sleep 5
+				sleep 30
 				bat "acceptance_test.sh"
 			}
 		}
