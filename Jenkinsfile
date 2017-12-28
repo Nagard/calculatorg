@@ -5,29 +5,29 @@ pipeline {
 	stages {
 		stage("Compile") {
 			steps {
-				sh "./gradlew compileJava"
+				sh "gradlew compileJava"
 			}
 		}
 		stage("Unit test") {
 			steps {
-				sh "./gradlew test"
+				sh "gradlew test"
 			}
 		}
 		
 		stage("Code coverage") {
 			steps {
-				sh "./gradlew jacocoTestReport"
+				sh "gradlew jacocoTestReport"
 				publishHTML (target: [
 					reportDir: 'build/reports/jacoco/test/html',
 					reportFiles: 'index.html',
 					reportName: "JaCoCo Report" ])
-				sh "./gradlew jacocoTestCoverageVerification"
+				sh "gradlew jacocoTestCoverageVerification"
 			}
 		}
 
 		stage("Static code analysis") {
 			steps {
-				sh "./gradlew checkstyleMain"
+				sh "gradlew checkstyleMain"
 				publishHTML (target: [
 					reportDir: 'build/reports/checkstyle/',
 					reportFiles: 'main.html',
@@ -37,7 +37,7 @@ pipeline {
 		
 		stage("Package") {
 			steps {
-				sh "./gradlew build"
+				sh "gradlew build"
 			}
 		}
 		
@@ -65,7 +65,7 @@ pipeline {
 		stage("Acceptance test") {
 			steps {
 				sleep 5
-				sh "./acceptance_test.sh"
+				sh "acceptance_test.sh"
 			}
 		}
 		
