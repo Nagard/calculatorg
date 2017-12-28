@@ -46,20 +46,20 @@ pipeline {
 
 		stage("Docker build") {
 			steps {
-				bat "docker build -t leszko/calculator ."
+				bat "docker build -t dm/calculator ."
 			}
 		}
 		
 		stage("Docker push") {
 			steps {
 				bat "docker login --username dm4711 --password securedm4711"
-				bat "docker push leszko/calculator"
+				bat "docker push dm/calculator"
 			}
 		}
 		
 		stage("Deploy to staging") {
 			steps {
-				bat "docker run -d --rm -p 8765:8080 --name calculator leszko/calculator"
+				bat "docker run -d --rm -p 8765:8080 --name calculator dm/calculator"
 			}
 		}
 		
