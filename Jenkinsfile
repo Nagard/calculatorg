@@ -60,7 +60,7 @@ pipeline {
 		
 		stage("Deploy to staging") {
 			steps {
-				bat "docker-compose up-d"
+				bat "docker-compose up -d"
 			}
 		}
 		
