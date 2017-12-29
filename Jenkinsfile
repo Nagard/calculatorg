@@ -60,13 +60,13 @@ pipeline {
 		
 		stage("Deploy to staging") {
 			steps {
-				bat "docker run -d --rm -p 8765:8080 --name calculator dm4711/calculator"
+				bat "docker-compose up-d"
 			}
 		}
 		
 		stage("Acceptance test") {
 			steps {
-				sleep 30
+				sleep 60
 				bat "acceptance_test.sh"
 			}
 		}
@@ -76,7 +76,7 @@ pipeline {
 	
 	post {
 		always {
-			bat "docker stop calculator"
+			bat "docker-compose down"
 		}
 	}	
 	
